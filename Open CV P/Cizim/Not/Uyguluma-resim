@@ -1,0 +1,48 @@
+------------------------------------------------------------------------------------------------------------------------
+cv2.createTrackbar()
+Bu komut sayesiden içine girilen değerleri bir imleç sayesinde oluşturulmuş olan her hangibir tuvalde görmemize ve bu tuvalde kullanabilme imkanı sunar bize.Bu işlemi gerçekleştirebilmemiz
+için kullanacağımız olan fonksiyonun içine belli başlı değerler ve girdiler girmemiz gerekiyor.Öncelikle ilk gireceğimiz değer ise kullancağımız olan imlecin ismidir.Daha sonra hangi
+ekranda girmek istiyorsak o ekranın yani tuvalin ismini vermemiz gerekiyor.Daha sonra bu imlecin hangi sayılar arasında olacağını belirtmemiz gerekiyor.Bunun için ise 2 adet sayı belirtmemiz
+gerekiyor.Daha sonra kullanmış olduğumuz metod bizde bir adet fonksiyon belirtmemizi isteyecektir.Bunun için oluşturmuş olduğumuz rastgele boş bir fonksiyondan yararlanabiliriz.Bu adımları
+gerçekleştirmek için aşağıdaki kodları çalıştırmamız gerekiyor.
+
+def bosfonksiyon():
+   pass
+
+cv2.createTrackbar("İsim","Tabloismi",0,255,bosfonksiyon)
+
+Örnek hali ise;
+
+cv2.createTrackbar("R","tablo",0,255,bosfonksiyon)
+cv2.createTrackbar("G","tablo",0,255,bosfonksiyon)
+cv2.createTrackbar("B","tablo",0,255,bosfonksiyon)
+
+Daha sonra bunları sürekli değiştirmek için while döngüsüne alabiliriz.
+------------------------------------------------------------------------------------------------------------------------
+cv2.getTrackbarPos()
+
+Bu metod bize daha önceden belirlemiş olduğumnuz imleçlerin projeyi başlattığımız zaman değiştirdiğimiz değerleri bize verir.Bu değerler sayesinde Projemizde imlecimizi belirlemiş oluruz.
+Bu metod bizeden toplamda iki adet değişken belirlememizi istiyor bunlardan biri imlecimizin ismi diğeri ise imlecimizin görüntülemek istediğimiz tuvalın adıdır.Aslında imlecimizi oluştururuken
+vermiş olduğumuz ilk iki değerin aynısını girmemiz gerekiyor.Aşağıdaki örnek kodları çalıştırırsanız istenilen sonuca ulaşabilirsiniz.
+
+cv2.getTrackbarPos("imlecin ismi","imlecin gösterileceği tuval")
+
+Örnek hali ise;
+
+r=cv2.getTrackbarPos("R","tablo")
+g=cv2.getTrackbarPos("G","tablo")
+b=cv2.getTrackbarPos("B","tablo")
+------------------------------------------------------------------------------------------------------------------------
+paneladi[:]=[r,g,b]
+
+Bu kod aslında imleçlerde belirlemiş olduğumuz renkleri tuvalde göstermemize yarayan koddur.[:] sayesinde aslında tuvalimizdeki tüm renk değerlerini kastetmiş oluruz.B,G,R diziniminde
+renk değerlerini giririz.Bu kodu çalıştırmak için ise aşağıdaki örnek kodu girmemiz yeterlidir.
+
+tabloismi[:]=[b,g,r]
+
+Örnek hali ise;
+
+tablo[:]=[b,g,r]
+------------------------------------------------------------------------------------------------------------------------
+
+

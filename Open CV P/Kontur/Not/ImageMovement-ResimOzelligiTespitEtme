@@ -1,0 +1,16 @@
+------------------------------------------------------------------------------------------------------------------------
+cv2.moments()
+
+Bu metod bize içine girilen değerin farklı türlerdeki değerlerini verir.Örnek vermek gerekirse verdiği değerler "m10","m01","m11" gibi farklı farklı değerlerdir her biri
+farklı değerler taşımaktadır.Örnek girdi;
+
+M=cv2.moments(thres)
+
+------------------------------------------------------------------------------------------------------------------------
+HERHANGİ BİR OBJENİN ORTASINI BULMAK
+
+Herhangi bir nesnenin tam ortasını bulmak için ise cv2.moments() komudu ile cektigimiz değerlerden yararlanırız.Bu değerler yatay ve dikey olmak üzeredirler."m10","m00","m01"
+gibi değerlerdir.Tam ortasını bulmak için X ve Y konumlarında birer adet nokta belirlememiz gerekiyor.Örnek girdi;
+
+X=int(M["m10"]/M["m01"])
+Y=int(M["m01"]/M["m00"])

@@ -1,0 +1,23 @@
+import cv2
+import numpy as np
+
+video = cv2.VideoCapture("C:\\Users\\behin\\Desktop\\dog.mp4")
+
+while (True) :
+    _,frame=video.read()
+    hsv = cv2.cvtColor(frame,cv2.COLOR_BGR2HSV)
+
+    sensivity = 15
+
+    hsv_lower =np.array([0,0,255-sensivity])
+    hsv_upper =np.array([255,sensivity,255])
+
+    mask = cv2.inRange(hsv,hsv_lower,hsv_upper)
+    res = cv2.bitwise_and(frame,frame,mask=mask)
+    cv2.imshow("frame",frame)
+    cv2.imshow("maske",mask)
+    cv2.imshow("sonuc",res)
+    if cv2.waitKey(30) & 0xFF==ord("q"):
+        break
+
+cv2.destroyAllWindows()

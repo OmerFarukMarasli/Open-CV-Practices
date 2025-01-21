@@ -1,0 +1,19 @@
+------------------------------------------------------------------------------------------------------------------------
+İstediğimiz objenin alanını bulmak için opencv'de cv2.contourArea() metodunu kullanıyoruz.Bu metod bizden sadece alanını bulmak istediğimiz şeklin once giri daha sonra threshholdu
+halinin sıfıfırıncı değerindeki verilerini ihtiyac duymaktadır.Örnekle göstermek gerekirse ;
+
+fotografımız/        img = cv2.imread("Resimler\Fotograf1.jpg")
+gri hali /           gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
+threshholdlu hali /  _,thresh = cv2.threshhold(gray,127,255,THRESH_BINARY)
+contur bulmak için ise / contours,_ = cv2.findContours(thresh,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
+
+alan bulmak için / cv2.contourArea(contours[0])
+
+------------------------------------------------------------------------------------------------------------------------
+Cevre bulmak için ise yukaridaki işlemleri aynen uygulamamız gerekiyor tek fark son komutta alan için değil çevre için geçerli olan kodumuzu girmek.Çevre için ise cv2.arcLength()
+komudunu kullanmamız yeterlidir.cv2.arcLength() komudu bizden toplam 2 adet değişken istemektedir bunlardan ilki contour değerlerimiz ikincisi ise istediğimiz şeklin kapalımı yoksa
+açık bir şekil mi olduğu.Örnek kod;
+
+cevre = cv2.arcLength(contour[0],True)
+
+------------------------------------------------------------------------------------------------------------------------

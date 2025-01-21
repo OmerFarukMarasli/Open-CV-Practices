@@ -1,0 +1,9 @@
+İtem metodu
+
+item metodu aslıdan işlemek istediğimiz bir görseldeki renk değerlerine ulaşmak için kullandığımız alternatif yollardan biridir.Bu yol sayesinde erişmek istediğimiz fotoğraftaki istediğimiz
+renk yani (mavi,yesil,kırmızı)renk değerlerine ulaşabiliriz.Metodun kullanım şekli şöyledir.İlk önce istediğimiz renk değerini yazdırmak için
+print("İstediğimiz renk değeri ",img.item(100,100,0))
+item metodu  ile  istediğimiz renkleri manipule etmek içinse aşşağıdaki metod şeklini kullanırız.Ama bu metod şekline item.set metodunu kullanırız
+
+img.itemset((100,100,0),199)
+Yukarıdaki metod şeklinde ilk değer olan mavi rengini manipule ederek 199 değerine eşitlemiş olduk.

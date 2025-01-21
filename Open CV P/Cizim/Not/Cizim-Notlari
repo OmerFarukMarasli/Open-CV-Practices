@@ -1,0 +1,8 @@
+canvas=np.zeros()
+Bizim çizim yaparken kullandığımız bir komuttur.Bu komut ile siyah bir tuval oluşturmuz oluruz.İçine ilk önce tuval genişliğini(örn:(449x500,3)) ilk ikisi boyut sonuncusu ise kanal kodudur
+Eğer renkli bir çizim yapılacaksa 3 değeri kullanılmak zorundadır.Bunula birlikte kodun sonuna kanal değerini girmemiz gerekmektedir.Kanal değeri ise(örn:(dtype=np.uint8)) şeklinde olmalıdır.
+Eğer numpy kütüphanesi ile bir palet oluşturulacaksa bu komutu kullanmak zorundayız.
+canvas=np.zeros((510,410,3),np.dtype=uint8)
+
+canvas =np.zeros((512,512,3),dtype=np.uint8)+255
+Değerini yazarsak elimize beyaz bir tuval gececektir.Bunun nedeni bir matrise belirli bir sayı eklersek tüm matrisler o sayıdan etkilenir ve o sayıya eşit olmmuş olurlar.

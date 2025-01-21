@@ -1,0 +1,5 @@
+img.shape komudu ise bizim erişmek istediğimiz fotografın yüksekliğini,genişliğini ve kanal numarasını bize verir.
+Kanal değeri 3 ise fotograf renklidir.Eğer 1 ise gri tonlardadır ve yazdırmada 1 değeri çıkacağı için herhangi bir değer vermez.
+
+Bir resmin boyutunu öğrenmek için img.size() metodunu kullanırız bu metod ile birlikte erişmek istediğimiz fotoğrafın boyutunu elde etmiş oluruz
+Resmin veri türünü almak için ise img.dtype() metodunu kullanırız.

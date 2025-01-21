@@ -1,0 +1,7 @@
+(B,G,R)=cv2.split(img)
+Bu foknsiyon bize içine girdiğimiz değişkenin yani img nin demet olarak girdiğimiz değişkenlerde görüntü kanallarını ayırıp bize yeni bir şekilde geri sunar.
+merged=cv2.merge(B,G,R)
+ise bu ayrılmış olan verileri tekrardan birleştirmemize olanak sağlar.
+
+np.zeros(100,100,dtype="uint8")
+Yaparak ekranımızda 100x100 boyutunda bir siyah ekran elde etmiş oluruz.

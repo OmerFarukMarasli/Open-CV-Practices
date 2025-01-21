@@ -1,0 +1,10 @@
+cv2 kütüphanesinde yazı yazdırmak için bir metod bulunmaktadır. Bu komut için içene birden fazla farklı girdiler girmemiz gerekiyor.İlk öncelikle yine üzerinde çalışmak itediğiimiz
+tabloyu girmemiz gerekiyor.Daha sonra girmek istediğimiz yazıyı tırnak işaretleri içinde girmemiz gerekiyor daha sonra yazının bulunmasını istediğimiz konum bilgilerini girmemiz gerekiyor
+daha sonra istediğimiz bir fontu sonra,yazının büyüklük değerini rengini ve yazı tipini girmemiz gerekiyor.Örnek girdi:
+
+cv2.putText(canvas,"OpenCV",(100,100),font1,2,(122,144,255),cv2.LINE_AA)
+
+Yazı fontu belirlemek içinse cv2'nun kendi hazır vermiş olduğu fontları kullanabiliriz.
+
+font1=cv2.FONT_HERSHEY_SIMPLEX
+

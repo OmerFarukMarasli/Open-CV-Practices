@@ -1,0 +1,71 @@
+np.uint8=Cizim yaptığımızda kullanmamız gereken veri tipidir.
+------------------------------------------------------------------------------------------------------------------------
+cv2.line()
+Bu metod bizim açmış olduğumuz ekranda düz bir çizgi çizmemize olanak sağlayan bir metoddur.İcene toplam 3 adet değer alır.Bunlardan ilki üzerinde çizim yapmak istediğimiz tuvalın ismidir
+İkincisi ise çizilmek istenen noktanın hangi konumdan başladığını göstermek amacıyla(x,y) değerlerinde değer vermemiz gerekmektedir.Ücüncü değer ise çizilmek istenen noktanın nereden bite_
+ğini göstestermek için girilen değerlerdir yine (x,y) değerlerinde gösterilir.Dördüncü olarak cizilmek istenen cizginin hangi renk değerlerine sahip olduğunu belirtmemiz gerekmektedir.Bunu
+BGR sırasına uygun olarak yapmamız gerekmektedir((100,29,3) gibi).Son olarak ise (thickness) yani kalınlık değerini vermemiz gerekmektedir.Örnek bir değer girilişi:
+cv2.line(canvas,(100,100),(255,255),(10,39,200),thickness=4)
+
+Görüntüyü göstermek içinse
+cv2.imshow("Görüntü-ismi",canvas)
+------------------------------------------------------------------------------------------------------------------------
+cv2.rectangle()
+Bu metod aslında ilk bahsettiğim metoda çok benzerlik gösteriyor.İçine girmemiz gereken değerler birbirinin aynısıdır.Bu metodun çalışma mantığı ise dikdörtgen çizmek için dikdörtgenin sol en
+üst köşesi ile dikdörtgenin sag en alt köşesini belirtmemiz gerekmektedir.En önemli nokta ise girdiğimiz kalınlık değeri negatif bir değer diktörgen bu sefer içi dolu bir dikdörgen olacaktır
+Örnek bir değer girişi:
+cv2.rectangle(canvas,(100,244),(29,100),(100,200,254),thickness=4)
+------------------------------------------------------------------------------------------------------------------------
+cv2.circle()
+Bu metod bizim bir adet cember çizmemize olanak sağlar.Bu metodda yine girmemiz gereken değerler aynıdır ama en temel farkı çemberin kendi geometrik kuralıyla alakalırdır.Çember için bir
+ader merkez noktası,bir adette yarı cap gerekmektedir.Bu sayade istediğimiz genişlikte ve çapta daireler elde edebiliriz.İçi dolu bir çember elde etmek içinse yine son değer olan kalınlığa
+negatif bir değer vermemiz gerekiyor.
+cv2.circle(canvas,(100,1000),199,(11,99,199),thickness=3)
+"cv2.circle(canvas,merkez noktasi:(100,1000),yarıcap:199,(11,99,199),thickness=3)
+------------------------------------------------------------------------------------------------------------------------
+Ücgen çizmek için cv2 kütüphanesinde belirli bir komut veya dizin yoktur.Bunun için cv2 kütüphanesinden 3 farklı çizgi çekerek işleyebiliriz.Bunun için öncelikle üc ç adet farklı konumlarda
+nokta belirlemiz gerekir.
+n1=(100,22)
+n2=(33,44)
+N3=(0,39)
+
+Bunun gibi örnek değerler vermemiz şuanlık için yeterlidir.Ondan belirlediğimiz bu nokta  ile bunuları tablomuzda çalıştırmamız gerekmektedir.Bu içinde çizgi çekmemiz gerekir.
+cv2.line(canvas,n1,n2,(100,100,100),thickness=4)
+cv2.line(canvas,n2,n3,(100,100,100),thickness=4)
+cv2.line(canvas,n1,n3,(100,100,100),thickness=4)
+
+şeklide komutlarımızı çalıştırarak istediğimiz şeklide üçgenler çizebiliriz.
+------------------------------------------------------------------------------------------------------------------------
+Düzgün çok genler oluşturmak için cv2 kütüphaneside bulunan bir adet komudu kullanabiliriz.Bu komut cv2.polylines() metodudur.Bu metod sayesinde düzgün çok genler oluşturulabilir hale gelir.
+Bunun için öncelikle  numpy kütüphanesinden bir adet liste oluşturmamız gerekiyor.
+
+
+noktalar=np.array([[[100,199],[110,22],[102,222],[1000,2333]],np.int32]
+
+np.int32 dememizin sebebi ise burada oluşturmuş olduğumuz değerleri int türünde yansıtmak istememizdir.
+Daha sonra bunları cv2.polylines() metodu ile kullanmamız gerekiyor.
+
+Bunun için ise içine belli başlı değerler ve girdiler girmemiz gerekiyor.Öncelikle çizim yapmak istediğimiz paletin ismini girmemiz gerekmektedir.Daha sonra ise vermiş olduğumuz noktaları
+girmemiz gerekmektedir.Daha sonra bu çizilecek olan şeklin açık mı yoksa kapalımı olacağını seçmemiz gerekmektedir.Daha sonra rengi ve kalınlık değerlerini vermemiz gerekiyor. Örnek bir
+girdi şekli:
+
+noktalar=np.array([[[100,100,[100,199],[110,22],[102,222],[1000,2333]],np.int32]
+cv2.polylines(canvas,[noktalar],True,(100,199,29),3)
+
+Eğer True yerine False yazsaydık son çizilen çizgi ile ilk çizilen çigyi birbirine bağlamayan bir şekil ortaya çıkmış olurdu.
+------------------------------------------------------------------------------------------------------------------------
+Elip şeklini çizmek için cv2 kütüphanesinde bulunan bir fonksiyonu kullanabiliyoruz.Bunun için cv2.ellipse() metodunu kullanabiliriz.Ama elip metodunu oluşturmak için girdiğimiz bir çok
+farklı değer vermemiz gerekmektedir.Öncelikle yine diğerlerinde olduğu gibi çizim yapmak istediğimiz tabolunun ismini vermemiz gerekiyor daha sonra merkez noktasının kordinatlarını vermemiz
+gerekiyor daha sonra uzunluğu ve genişliğin vermemiz gerekiyor daha sonra merkez yatay ekseninde kaç derecelik bir açı yapması gerektiğini belirtmemiz gerekiyor,sonra kaç dereceklik açılar
+arasında değer vermek istediğimiz belirtmemiz gerekiyor. Bunun için 2 adet  açı değeri vermemiz gerekiyor biri başlangıc diğeri bitiş .Bundan sonra renk ve kalınlık değerlerini vermemiz
+yeterli olacaktır.
+
+cv2.ellipse(canvas,(400,259),(109,230),42,0,360,(199,29,42),3)
+
+Yazmış olduğumuz komut ile birlikte istediğimiz ölçülerde ve renkte elips şeklini oluşturabiliriz.
+------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
